@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="./randomRects.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <div class="wrapper">
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+
+    <div class="person">
+      一个人
+    </div>
+  </div>
+</div>
+
+</body>
+<style>
+  @keyframes rotate-3d {
+    0% {
+      transform: rotateY(0deg);
+    }
+    50% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  @keyframes rotate-3d-person {
+    0% {
+      transform: rotateY(360deg);
+    }
+    50% {
+      transform: rotateY(180deg);
+    }
+    100% {
+      transform: rotateY(0deg);
+    }
+  }
+.container {
+  position: relative;
+  top: 300px;
+  left: 300px;
+  transform-style: preserve-3d;
+  transform: rotateX(-35deg);
+}
+.wrapper {
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  position: relative;
+  animation: rotate-3d 300000ms linear infinite;
+  animation-fill-mode: backwards;
+}
+.item {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  transform: translateZ(400px);
+}
+.item:nth-child(1) {
+  background-color: tomato;
+}
+.item:nth-child(2) {
+  background-color: yellowgreen;
+  transform: rotateY(45deg) translateZ(400px);
+}
+.item:nth-child(3) {
+  background-color: blueviolet;
+  transform: rotateY(90deg) translateZ(400px);
+}
+.item:nth-child(4) {
+  background-color: teal;
+  transform: rotateY(135deg) translateZ(400px);
+}
+.item:nth-child(5) {
+  background-color: violet;
+  transform: rotateY(180deg) translateZ(400px);
+}
+.item:nth-child(6) {
+  background-color: orange;
+  transform: rotateY(225deg) translateZ(400px);
+}
+.item:nth-child(7) {
+  background-color: bisque;
+  transform: rotateY(270deg) translateZ(400px);
+}
+.item:nth-child(8) {
+  background-color: mediumblue;
+  transform: rotateY(315deg) translateZ(400px);
+}
+.person {
+  font-size: 40px;
+  animation: rotate-3d-person 300000ms linear infinite;
+  animation-fill-mode: backwards;
+  text-align: center;
+  position: relative;
+  top: 30px;
+}
+</style>
+</html>

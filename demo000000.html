@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <!-- <script src="./randomRects.js"></script> -->
+</head>
+<body>
+  <div id="demo">
+    <div id="out" class="out">
+      <div onclick="innerClick()" id="inner" class="inner"></div>
+    </div>
+
+    <img alt="加载中" src="http://www.desktopwallpaperhd.net/wallpapers/10/d/dongwushijie-animal-tupian-107405.jpg" />
+  </div>
+</body>
+
+<script>
+  const imgTags = Array.from(document.getElementsByTagName('img'))
+  console.log(imgTags)
+  imgTags.forEach(imgtag => {
+    imgtag.onload = onimgload()
+  })
+  function onimgload () {
+    console.log('加载完成')
+  }
+
+  function innerClick () {
+    document.getElementById('inner').classList.add('inner-move')
+    document.getElementById('out').classList.add('out-move')
+  }
+</script>
+<style>
+  #demo {
+    width: 375px;
+    height: 180px;
+  }
+  .out {
+    width: 60px;
+    height: 60px;
+    /* background-color: blueviolet; */
+    transition-property: 'transform';
+    transition-duration: 4000ms;
+  }
+  .out-move {
+    transform: translateY(600px);
+  }
+  .inner {
+    width: 40px;
+    height: 40px;
+    background-color: brown;
+    transition-property: 'transform';
+    transition-duration: 4000ms;
+    transition-timing-function: cubic-bezier(.84,.01,0,1.02);
+  }
+  .inner-move {
+    transform: translateX(800px);
+  }
+</style>
+</html>
